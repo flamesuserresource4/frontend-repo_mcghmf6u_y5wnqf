@@ -17,7 +17,7 @@ export default function Navbar() {
     <div className="fixed top-0 inset-x-0 z-50" style={{backdropFilter:'saturate(180%) blur(10px)'}}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-amber-300 to-rose-200 grid place-items-center shadow-sm">
               <Sparkles className="h-5 w-5 text-stone-700" />
             </div>

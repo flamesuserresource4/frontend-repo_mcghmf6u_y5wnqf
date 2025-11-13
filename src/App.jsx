@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import Navbar from './Navbar'
 import { ArrowRight, CheckCircle2, Cpu, LineChart, Shield, Sparkles } from 'lucide-react'
+import ServiceCard from './components/ServiceCard'
+import BackgroundEffects from './components/BackgroundEffects'
 
 function SectionHeading({ eyebrow, title, subtitle }) {
   return (
@@ -21,7 +23,7 @@ function SectionHeading({ eyebrow, title, subtitle }) {
 function Hero() {
   return (
     <section className="relative overflow-hidden pt-28 pb-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(253,244,215,0.9),transparent_50%),radial-gradient(circle_at_80%_0%,rgba(255,228,196,0.8),transparent_40%),radial-gradient(circle_at_0%_100%,rgba(250,240,230,0.9),transparent_40%)]" />
+      <BackgroundEffects />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -88,14 +90,17 @@ function Services() {
     {
       title: 'Cloud & DevOps',
       desc: 'CI/CD pipelines, IaC, observability, and cost optimization across AWS/Azure/GCP.',
+      to: '/services/cloud-devops',
     },
     {
       title: 'Full‑stack Engineering',
       desc: 'Modern web apps, APIs, and microservices built with best practices.',
+      to: '/services/fullstack',
     },
     {
       title: 'Data & AI Enablement',
       desc: 'From data modeling to analytics dashboards and ML integrations.',
+      to: '/services/data-ai',
     },
   ]
 
@@ -105,17 +110,7 @@ function Services() {
         <SectionHeading eyebrow="What we do" title="Technical services that move the needle" subtitle="Engagements tailored to your goals, delivered by senior engineers." />
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {items.map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"
-            >
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-amber-200 to-rose-100 grid place-items-center">
-                <CheckCircle2 className="h-5 w-5 text-stone-800" />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold text-stone-900">{item.title}</h3>
-              <p className="mt-2 text-stone-600">{item.desc}</p>
-            </motion.div>
+            <ServiceCard key={i} title={item.title} description={item.desc} to={item.to} />
           ))}
         </div>
       </div>
